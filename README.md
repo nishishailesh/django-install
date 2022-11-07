@@ -66,5 +66,5 @@ Alias /dj/static /usr/share/nchs/dj/static
 ```
 
   17. service apache2 restart
-  18. go to: https://127.0.0.1/dj/admin
+  18. go to: http://127.0.0.1/dj/admin
 
