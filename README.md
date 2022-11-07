@@ -34,14 +34,11 @@ DATABASES = {
 STATIC_URL = '/dj/static/'
 
 #to get proper css and js configuration static root needs to be defined. 
-#leter on'collectstatic' command will be used to get admin static files in this folder
+#leter on 'collectstatic' command will be used to get admin static files in this folder
 STATIC_ROOT="/usr/share/nchs/dj/static"
-
-
-service mysql status
-ps aux|grep mysql
-python3 manage.py
-python3 manage.py  migrate
+'''
+  10. ``python3 manage.py  migrate``
+  
 python3 manage.py  createsuperuser
 service apache2 restart
 service apache2 restart
