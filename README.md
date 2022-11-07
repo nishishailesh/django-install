@@ -50,7 +50,7 @@ STATIC_ROOT="/usr/share/nchs/dj/static"
     #os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'dj.settings')
     os.environ["DJANGO_SETTINGS_MODULE"] = "dj.settings"
 
-  16. create/edit /etc/apache2/conf-enabled/common.conf (This is to ensure that other projects hosted under apache2 remain as it is)
+  16. create/edit /etc/apache2/conf-enabled/common.conf (This is to ensure that other projects hosted under apache2 remain as it is).\\ sadasd
 
 ```
 <VirtualHost *:80>
