@@ -4,4 +4,4 @@ Although a lot many online tutorials are avaialble for django installation and s
 This help is step-by-step guide for making this bare-bone project working with apache2\
 I saw many online resources, but, comprehansive help for newbee is missing\
 #Setup\
- -debian 11.*
+    -debian 11.*
