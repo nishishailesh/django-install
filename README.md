@@ -50,7 +50,7 @@ STATIC_ROOT="/usr/share/nchs/dj/static"
     #os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'dj.settings')
     os.environ["DJANGO_SETTINGS_MODULE"] = "dj.settings"
 
-  16. create/edit /etc/apache2/conf-enabled/common.conf (This is to ensure that other projects hosted under apache2 remain as it is).  sadasd
+  16. create/edit /etc/apache2/conf-enabled/common.conf (This is to ensure that other projects hosted under apache2 remain as it is).  python-path is : saperated paths where project is installed. so only one dj, not two dj is in the path. Alias is necessary because browser will ask this location to get static files. see the absolute path of project static files is required. In fact, it is ``Alias STATIC_URL STATIC_ROOT``
 
 ```
 <VirtualHost *:80>
