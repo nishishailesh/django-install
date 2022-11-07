@@ -65,11 +65,6 @@ Alias /dj/static /usr/share/nchs/dj/static
 
 ```
 
-
-service apache2 restart
-service apache2 restart
-pico /root/.bash_history
-exit
-tail -f /var/log/apache2/error.log
-exit
+  17. service apache2 restart
+  18. go to: https://127.0.0.1/dj/admin
 
