@@ -11,8 +11,9 @@ I saw many online resources, but, comprehansive help for newbee is missing\
   5. ``mkdir /usr/share/nchs``
   6. `` cd /usr/share/nchs``
   7. ``django-admin startproject dj`` (see a folder created in /usr/share/nchs/dj , with one more dj named folder inside and manage.py)
-  8. edit /usr/share/nchs/dj/dj/settings.py
-  9. some chnages required as shown below
+  8. ``cd /usr/share/nchs/dj`` (to run "python namage.py ..." commands)
+  9. edit /usr/share/nchs/dj/dj/settings.py
+  10. some chnages required as shown below
   
 ```
 DEBUG = True  #Not edited to view errors during this experiment
@@ -36,32 +37,35 @@ STATIC_URL = '/dj/static/'
 #to get proper css and js configuration static root needs to be defined. 
 #leter on 'collectstatic' command will be used to get admin static files in this folder
 STATIC_ROOT="/usr/share/nchs/dj/static"
-'''
-  10. ``python3 manage.py  migrate``
-  
-python3 manage.py  createsuperuser
-service apache2 restart
-service apache2 restart
-service apache2 restart
-service apache2 restart
-service apache2 restart
-service apache2 restart
-service apache2 restart
-service apache2 status
-service apache2 status
-service apache2 restart
-service apache2 restart
-service apache2 restart
-service apache2 restart
-service apache2 status
-service apache2 status
-service apache2 restart
-ls /usr/lib/python3/dist-packages/django/contrib/admin/static
-ls /usr/lib/python3/dist-packages/django/contrib/admin/static/admin/
-python3 manage.py
-python3 manage.py  collectstatic
-ls
-ls static/
+
+```
+
+  10. ``python3 manage.py  migrate``  (see various tables created in resident database)
+  11. ``python3 manage.py  createsuperuser`` (this will be useful to test weather admin module is properly working)
+  12. give admin email,password when asked
+  13. ``python3 manage.py  collectstatic`` (this will copy files in STATIC_ROOT folder , in our case, admin files from django installation)
+  14. Edit wsgi.py file in /usr/share/nchs/dj/dj folder
+  15. comment a line to ensure that mutiple projects work under apache2
+
+    #os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'dj.settings')
+    os.environ["DJANGO_SETTINGS_MODULE"] = "dj.settings"
+
+  16. create/edit /etc/apache2/conf-enabled/common.conf (This is to ensure that other projects hosted under apache2 remain as it is)
+
+```
+<VirtualHost *:80>
+    WSGIDaemonProcess Pone processes=3 threads=15 python-path=/usr/share/nchs/dj
+    WSGIScriptAlias /dj /usr/share/nchs/dj/dj/wsgi.py   
+    <Directory /usr/share/nchs/dj/dj>
+        WSGIProcessGroup Pone
+        Require all granted
+    </Directory>
+</VirtualHost>
+Alias /dj/static /usr/share/nchs/dj/static
+
+```
+
+
 service apache2 restart
 service apache2 restart
 pico /root/.bash_history
