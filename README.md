@@ -7,7 +7,7 @@ I saw many online resources, but, comprehansive help for newbee is missing\
   1. debian 11.* login as root / use su / use sudo
   2. basic knowledge of mysql,apache2 and python required
   3. ``apt install python3-django``
- #startproject
+ # startproject
   5. I will install my project in /usr/share/nchs folder (/usr/share have default permission for web access in debian)
   6. ``mkdir /usr/share/nchs``
   7. `` cd /usr/share/nchs``
@@ -67,4 +67,4 @@ Alias /dj/static /usr/share/nchs/dj/static
   17. service apache2 restart
   18. go to: http://127.0.0.1/dj/admin
 
-#startapp
+# startapp
