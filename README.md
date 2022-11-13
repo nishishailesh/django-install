@@ -53,14 +53,12 @@ STATIC_ROOT="/usr/share/nchs/dj/static"
   16. create/edit /etc/apache2/conf-enabled/common.conf (This is to ensure that other projects hosted under apache2 remain as it is).  python-path is : saperated paths where project is installed. so only one dj, not two dj is in the path. Alias is necessary because browser will ask this location to get static files. see the absolute path of project static files is required. In fact, it is ``Alias STATIC_URL STATIC_ROOT``
 
 ```
-<VirtualHost *:80>
     WSGIDaemonProcess Pone processes=3 threads=15 python-path=/usr/share/nchs/dj
     WSGIScriptAlias /dj /usr/share/nchs/dj/dj/wsgi.py   
     <Directory /usr/share/nchs/dj/dj>
         WSGIProcessGroup Pone
         Require all granted
     </Directory>
-</VirtualHost>
 Alias /dj/static /usr/share/nchs/dj/static
 
 ```
