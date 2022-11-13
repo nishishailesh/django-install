@@ -7,13 +7,14 @@ I saw many online resources, but, comprehansive help for newbee is missing\
   1. debian 11.* login as root / use su / use sudo
   2. basic knowledge of mysql,apache2 and python required
   3. ``apt install python3-django``
-  4. I will install my project in /usr/share/nchs folder (/usr/share have default permission for web access in debian)
-  5. ``mkdir /usr/share/nchs``
-  6. `` cd /usr/share/nchs``
-  7. ``django-admin startproject dj`` (see a folder created in /usr/share/nchs/dj , with one more dj named folder inside and manage.py)
-  8. ``cd /usr/share/nchs/dj`` (to run "python namage.py ..." commands)
-  9. edit /usr/share/nchs/dj/dj/settings.py
-  10. some chnages required as shown below
+ #startproject
+  5. I will install my project in /usr/share/nchs folder (/usr/share have default permission for web access in debian)
+  6. ``mkdir /usr/share/nchs``
+  7. `` cd /usr/share/nchs``
+  8. ``django-admin startproject dj`` (see a folder created in /usr/share/nchs/dj , with one more dj named folder inside and manage.py)
+  9. ``cd /usr/share/nchs/dj`` (to run "python namage.py ..." commands)
+  10. edit /usr/share/nchs/dj/dj/settings.py
+  11. some chnages required as shown below
   
 ```
 DEBUG = True  #Not edited to view errors during this experiment
@@ -66,3 +67,4 @@ Alias /dj/static /usr/share/nchs/dj/static
   17. service apache2 restart
   18. go to: http://127.0.0.1/dj/admin
 
+#startapp
