@@ -7,6 +7,7 @@ I saw many online resources, but, comprehansive help for newbee is missing\
   1. debian 11.* login as root / use su / use sudo
   2. basic knowledge of mysql,apache2 and python required
   3. ``apt install python3-django``
+  4. you need to do two things: start project -> startapp to complate bare minimum application
  # startproject
   5. I will install my project in /usr/share/nchs folder (/usr/share have default permission for web access in debian)
   6. ``mkdir /usr/share/nchs``
