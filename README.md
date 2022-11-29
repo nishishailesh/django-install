@@ -200,5 +200,5 @@ def index(request):
 * notice use of 'logout' name in inverted comma. This ensure that the template do not have to write real name of external app.
 # Finally  
 * restart apache2 ```service apache2 restart```  
-* 127.0.0.1/dj
+* http://127.0.0.1/dj
 * delete/edit code in any way and see error messages on screen. Without it, following this tutorial as copy-paste activity will not help
