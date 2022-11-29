@@ -124,7 +124,7 @@ urlpatterns = [
   * -rw-r--r-- 1 root root 171 Nov 29 11:31  for Files
   * drwxr-xr-x 4 root root 4096 Nov 29 11:22 for Folders
 
-  #### login.html
+#### login.html
 
 ```
   <form method=post>
@@ -134,7 +134,7 @@ urlpatterns = [
   </form>
 ```
 
-  #### loggged_out.html
+#### loggged_out.html
   ```
   <a href="{%url 'login' %}">Login</a>
   ```
