@@ -69,8 +69,8 @@ Alias /dj/static /usr/share/nchs/dj/static
   18. go to: http://127.0.0.1/dj/admin
 
 # startapp
-1. in this example two apps will be created
+* in this example two apps will be created
   - authentication
   - home
-2. if your project directory is dj, in which manage.py is there run following command
-3. ``python3 manage.py startapp authetication``
+* if your project directory is dj, in which manage.py is there run following command
+* ``python3 manage.py startapp authetication``
