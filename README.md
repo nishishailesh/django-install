@@ -121,8 +121,8 @@ urlpatterns = [
   * in it create login.html,loggged_out.html, password_change_form.html,password_change_done.html by linux ```touch``` command
   * Commandline creation will set proper permissions. 
   * If root is owner of this file and folders following is required
-  * -rw-r--r-- 1 root root 171 Nov 29 11:31  for Files
-  * drwxr-xr-x 4 root root 4096 Nov 29 11:22 for Folders
+  * -rw-r--r-- 1 root root 171 Nov 29 11:31  ----> for Files
+  * drwxr-xr-x 4 root root 4096 Nov 29 11:22 ----> for Folders
 
 #### login.html
 
@@ -152,8 +152,7 @@ urlpatterns = [
 #### password_change_done.html
 ```
 <h3>Password Changed. Login using new password</h3>
-<a href="{%url 'login' %}">Login</a>  
-  
+<a href="{%url 'login' %}">Login</a> 
 ```  
 * interestingly, you need only templates to be created. auth app will look for them and use it as required.
 * {% csrf_token %} is used in all forms for security reason
@@ -164,4 +163,21 @@ urlpatterns = [
 * Now, some chnages in home app is required
 
 ## home app
-  
+* Two files are needed. views.py already exist. Templates/index.html needs to be created. Ensure permissions as above  
+```
+from django.shortcuts import render
+from django.http import HttpResponse
+from django.shortcuts import redirect
+# Create your views here.
+
+def index(request):
+    if request.user.is_authenticated:
+        return render(request, "index.html", {})
+        #html = "<html><body>It is Home</body></html>"
+        #return HttpResponse(html)
+    else:
+        return redirect('login')
+        #return redirect('authentication/login') #Ths works but another app name is required
+        #html = "<html><body>Not logged in</body></html>"
+        #return HttpResponse(html)  
+```
