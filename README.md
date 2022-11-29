@@ -164,20 +164,24 @@ urlpatterns = [
 
 ## home app
 * Two files are needed. views.py already exist. Templates/index.html needs to be created. Ensure permissions as above  
+#### views.py
+
 ```
 from django.shortcuts import render
 from django.http import HttpResponse
-from django.shortcuts import redirect
+from django.shortcuts import redirect   ##### because it is used if user is not authenticated
 # Create your views here.
 
 def index(request):
     if request.user.is_authenticated:
         return render(request, "index.html", {})
-        #html = "<html><body>It is Home</body></html>"
-        #return HttpResponse(html)
     else:
         return redirect('login')
-        #return redirect('authentication/login') #Ths works but another app name is required
-        #html = "<html><body>Not logged in</body></html>"
-        #return HttpResponse(html)  
+        #return redirect('authentication/login')
 ```
+* request object is passed by django engine to this function.
+* one of the element of request object is user
+* So, actually, admin app takes user/password, verify their correctness and update request object.
+* redirect() uses url name. It is interesting. because, if you know name , the full path (commented line just below it) is avoided.
+* use of name, instead of full path is good, because, it avoids actual name of auth app (app-name could be account/authentication/login etc)  
+* restart apache2 ```service apache2 restart```  
