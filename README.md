@@ -80,7 +80,8 @@ Alias /dj/static /usr/share/nchs/dj/static
 * It was very nice to learn that basic login/logout/change password system can be implimented by creating few templates and few line of code
 ## authentication app
 * It is based on django.contrib.auth (its entry already there in settings.py)
-### settings.py
+### settings.py (in main project folder dj)
+* This file already exist in main project folder (dj/dj)
 * in INSTALLED_APPS list add two more members, authentication and home. This will make project to search for them in project base folder
 ```
     INSTALLED_APPS = [
@@ -94,3 +95,8 @@ Alias /dj/static /usr/share/nchs/dj/static
     'home'
     ]
 ```
+* add following directive in settings.py
+* ```LOGIN_REDIRECT_URL='/dj/'```
+* This is requirement of auth app. It will redirect to this URL if login is successful. So, login form have no need for usual <form action=xyz>
+  
+### urls.py (in main project folder dj)
