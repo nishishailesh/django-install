@@ -67,6 +67,7 @@ Alias /dj/static /usr/share/nchs/dj/static
 
   17. service apache2 restart
   18. go to: http://127.0.0.1/dj/admin
+  19. For most use case this app (admin) is not useful. For routine login system we need saperate app.
 
 # startapp
 * in this example two apps will be created
@@ -77,3 +78,18 @@ Alias /dj/static /usr/share/nchs/dj/static
 * ``python3 manage.py startapp home``
 * See that, main dj folder have three subfolders ( dj,authentication, home )
 * It was very nice to learn that basic login/logout/change password system can be implimented by creating few templates and few line of code
+* **authentication app**
+* It is based on django.contrib.auth (its entry already there in settings.py)
+* **settings.py**
+* in INSTALLED_APPS list add two more members, authentication and home
+
+    INSTALLED_APPS = [
+    #'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'authentication',
+    'home'
+    ]
