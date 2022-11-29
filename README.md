@@ -82,7 +82,7 @@ Alias /dj/static /usr/share/nchs/dj/static
 * It is based on django.contrib.auth (its entry already there in settings.py)
 * **settings.py**
 * in INSTALLED_APPS list add two more members, authentication and home
-
+``
     INSTALLED_APPS = [
     #'django.contrib.admin',
     'django.contrib.auth',
@@ -93,3 +93,4 @@ Alias /dj/static /usr/share/nchs/dj/static
     'authentication',
     'home'
     ]
+``
