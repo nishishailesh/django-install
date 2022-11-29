@@ -184,4 +184,21 @@ def index(request):
 * So, actually, admin app takes user/password, verify their correctness and update request object.
 * redirect() uses url name. It is interesting. because, if you know name , the full path (commented line just below it) is avoided.
 * use of name, instead of full path is good, because, it avoids actual name of auth app (app-name could be account/authentication/login etc)  
+#### index.html
+* this name, index was used in urls.py in main app folder. 
+* Flow of information is -> login.html -> admin processing -> LOGIN_REDIRECT_URL -> "" is matching home.views.home() -> ( index.html is randered or redirected to "login" name definded by auth
+```
+<html>
+    <body>
+        It is Home
+        <a href="{% url 'logout' %}">Logout</a>
+        <a href="{% url 'password_change' %}">Change Password</a>
+    </body>
+</html>
+```
+* logged in users are given chance to change password.
+* notice use of 'logout' name in inverted comma. This ensure that the template do not have to write real name of external app.
+# Finally  
 * restart apache2 ```service apache2 restart```  
+* 127.0.0.1/dj
+* delete/edit code in any way and see error messages on screen. Without it, following this tutorial as copy-paste activity will not help
