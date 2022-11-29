@@ -101,7 +101,8 @@ Alias /dj/static /usr/share/nchs/dj/static
   
 ### urls.py (in main project folder dj)
 * make following changes
-  ```
+  
+```
   from django.urls import path, include
 import home.views
 urlpatterns = [
@@ -110,5 +111,5 @@ urlpatterns = [
     path('', home.views.index, name='home')
     
 ]
-  ```
+```
   
