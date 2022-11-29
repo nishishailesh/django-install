@@ -70,7 +70,10 @@ Alias /dj/static /usr/share/nchs/dj/static
 
 # startapp
 * in this example two apps will be created
-  - authentication
+  - authentication (this will you auth app built in to django basic installation)
   - home
-* if your project directory is dj, in which manage.py is there run following command
+* if your project directory is dj ( in which manage.py is located) , run following command
 * ``python3 manage.py startapp authetication``
+* ``python3 manage.py startapp home``
+* See that, main dj folder have three subfolders ( dj,authentication, home )
+* It was very nice to learn that basic login/logout/change password system can be implimented by creating few templates and few line of code
