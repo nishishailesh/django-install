@@ -103,7 +103,7 @@ Alias /dj/static /usr/share/nchs/dj/static
 * make following changes
   
 ```
-  from django.urls import path, include
+from django.urls import path, include
 import home.views
 urlpatterns = [
     #path('admin/', admin.site.urls),
@@ -112,4 +112,24 @@ urlpatterns = [
     
 ]
 ```
-  
+* In home app folder there is views.py. It will have index() function (to be writtern later on)
+* This index() will be called when path is empty (just 127.0.0.0.1/dj)
+* 127.0.0.0.1/dj/authentication/XYZ will be various urls imported from auth app
+
+  ### changes in authentication folder
+  * create authentication/templates/registration folder from commandline. 
+  * in it create login.html,loggged_out.html, password_change_form.html,password_change_done.html by linux ```touch``` command
+  * Commandline creation will set proper permissions. 
+  * If root is owner of this file and folders following is required
+  * -rw-r--r-- 1 root root 171 Nov 29 11:31  for Files
+  * drwxr-xr-x 4 root root 4096 Nov 29 11:22 for Folders
+
+  #### login.html
+
+```
+  <form method=post>
+    {% csrf_token %}
+  {{form}}
+  <input type=submit name=submit value=login>
+  </form>
+```
