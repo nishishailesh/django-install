@@ -133,3 +133,8 @@ urlpatterns = [
   <input type=submit name=submit value=login>
   </form>
 ```
+
+  #### loggged_out.html
+  ```
+  <a href="{%url 'login' %}">Login</a>
+  ```
