@@ -100,3 +100,15 @@ Alias /dj/static /usr/share/nchs/dj/static
 * This is requirement of auth app. It will redirect to this URL if login is successful. So, login form have no need for usual <form action=xyz>
   
 ### urls.py (in main project folder dj)
+* make following changes
+  ```
+  from django.urls import path, include
+import home.views
+urlpatterns = [
+    #path('admin/', admin.site.urls),
+    path('authentication/', include("django.contrib.auth.urls")),      #this is a string. not required to import
+    path('', home.views.index, name='home')
+    
+]
+  ```
+  
