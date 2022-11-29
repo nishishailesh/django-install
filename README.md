@@ -155,3 +155,13 @@ urlpatterns = [
 <a href="{%url 'login' %}">Login</a>  
   
 ```  
+* interestingly, you need only templates to be created. auth app will look for them and use it as required.
+* {% csrf_token %} is used in all forms for security reason
+* {{form}} is a variable data passed by auth views to this template.
+* Unlike html form there is no need for action. This is required, because action is not determined by auth, but by settings.py LOGIN_REDIRECT_URL declaration
+* password_change_form ultimately randers password_change_done if change is successful. Again no action to be specified in form
+* These 4 files are just enough to start app working.
+* Now, some chnages in home app is required
+
+## home app
+  
