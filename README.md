@@ -78,10 +78,10 @@ Alias /dj/static /usr/share/nchs/dj/static
 * ``python3 manage.py startapp home``
 * See that, main dj folder have three subfolders ( dj,authentication, home )
 * It was very nice to learn that basic login/logout/change password system can be implimented by creating few templates and few line of code
-* **authentication app**
+* ***authentication app***
 * It is based on django.contrib.auth (its entry already there in settings.py)
 * **settings.py**
-* in INSTALLED_APPS list add two more members, authentication and home
+* in INSTALLED_APPS list add two more members, authentication and home. This will make project to search for them in project base folder
 ```
     INSTALLED_APPS = [
     #'django.contrib.admin',
