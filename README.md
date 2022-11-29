@@ -138,3 +138,20 @@ urlpatterns = [
   ```
   <a href="{%url 'login' %}">Login</a>
   ```
+
+  
+#### password_change_form.html
+```
+<form method=post>
+    {% csrf_token %}
+{{form}}
+<input type=submit name=submit value='change password'>
+</form>
+  
+```  
+#### password_change_done.html
+```
+<h3>Password Changed. Login using new password</h3>
+<a href="{%url 'login' %}">Login</a>  
+  
+```  
