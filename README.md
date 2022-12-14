@@ -130,7 +130,7 @@ urlpatterns = [
   <form method=post>
     {% csrf_token %}
   {{form}}
-  <input type=submit name=submit value=login>
+  <input type=submit name=submit value=login>curl -H 'Accept: application/json; indent=4' -u root:DNArna@123 http://127.0.0.1/dj/ma
   </form>
 ```
 
@@ -299,5 +299,5 @@ add    line ```WSGIPassAuthorization On``` outside any section, to make curl wor
 restart apache2\
 ```curl -H 'Accept: application/json; indent=4'  -u root:DNArna@123 http://127.0.0.1/dj/ma/```
 see / folloing ma.\
-I spect 30 minutes figuringout this mistake\
-play
+I spent 30 minutes figuring out this mistake\
+play, experiment
