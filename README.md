@@ -251,8 +251,8 @@ class Result(models.Model):
   ```
   the table will be created manually in mysql.\
   If one wants to create it by django 
-  1. set  ```managed=True```\
-  2. run ```makemigrations``` and ```migrate`` django commands\
+  1. set  ```managed=True```
+  2. run ```makemigrations``` and ```migrate``` django commands
   3. if ```managed=True``` is done after creating tables manually once, delete repective entry from mysql table for migrations. Otherwise it will never use managed=True settings
   
 ####  serializers.py in ma app folder
