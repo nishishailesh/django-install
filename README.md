@@ -202,3 +202,6 @@ def index(request):
 * restart apache2 ```service apache2 restart```  
 * http://127.0.0.1/dj
 * delete/edit code in any way and see error messages on screen. Without it, following this tutorial as copy-paste activity will not help
+
+#django RESTful API
+soon, I realised that, using REST API with django is second most important thing to learn (after setting authentication system)
