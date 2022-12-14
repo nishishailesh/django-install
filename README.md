@@ -298,5 +298,6 @@ edit /etc/apache2-conf/conf-enabled/common.conf as described above\
 add    line ```WSGIPassAuthorization On``` outside any section, to make curl work\
 restart apache2\
 ```curl -H 'Accept: application/json; indent=4'  -u root:DNArna@123 http://127.0.0.1/dj/ma/```
-see / folloing ma. I spect 30 minutes figuringout this mistake\
+see / folloing ma.\
+I spect 30 minutes figuringout this mistake\
 play
