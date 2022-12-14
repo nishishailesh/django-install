@@ -204,5 +204,5 @@ def index(request):
 * delete/edit code in any way and see error messages on screen. Without it, following this tutorial as copy-paste activity will not help
 
 # django RESTful API
-soon, I realised that, using REST API with django is second most important thing to learn (after setting authentication system)
+soon, I realised that, using REST API with django is second most important thing to learn (after setting authentication system)\ 
 ```apt install django-resfulapi```
