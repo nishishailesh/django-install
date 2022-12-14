@@ -207,9 +207,9 @@ def index(request):
 soon, I realised that, using REST API with django is second most important thing to learn (after setting authentication system)\
 ```apt install django-resfulapi```\
 the new app using REST API is called "ma"\
-```python3 manage.py startapp ma```\
+```python3 manage.py startapp ma```
   
-#### settings.py
+#### settings.py (in main project folder)
 ```
 INSTALLED_APPS = [
     'rest_framework'
@@ -221,7 +221,7 @@ INSTALLED_APPS = [
 import home.views, ma.views
 from rest_framework import routers
 
-  router = routers.DefaultRouter()
+router = routers.DefaultRouter()
 router.register(r'result', ma.views.ResultViewSet)
 
 urlpatterns = [
@@ -231,7 +231,7 @@ urlpatterns = [
 
 ]
 ```
-#### modles.py in ma app folder (I am creating table called "result" with classname "Result". )
+#### models.py in ma app folder (I am creating table called "result" with classname "Result". )
 ```
 from django.db import models
 
@@ -257,7 +257,7 @@ class Result(models.Model):
   
 ####  serializers.py in ma app folder
 ```
-  from django.contrib.auth.models import User, Group
+from django.contrib.auth.models import User, Group
 from rest_framework import serializers
 from .models import Result
 
@@ -267,7 +267,7 @@ class ResultSerializer(serializers.HyperlinkedModelSerializer):
         fields = ['url', 'sample_id', 'examination_id', 'result']
 ```
   
-#### views.py in ma folder
+#### views.py in ma app folder
 ```
 from django.shortcuts import render
 from django.http import HttpResponse
