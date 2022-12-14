@@ -205,4 +205,4 @@ def index(request):
 
 # django RESTful API
 soon, I realised that, using REST API with django is second most important thing to learn (after setting authentication system)
-    apt install django-resfulapi
+```apt install django-resfulapi```
