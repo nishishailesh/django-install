@@ -1,5 +1,5 @@
 # django-install
-django installation and first minimal project as production server with apache2
+django installation and first minimal project as production server with apache2\
 Although a lot many online tutorials are avaialble for django installation and starting first project, they all rely on its internal server.\
 This help is step-by-step guide for making this bare-bone project working with apache2\
 I saw many online resources, but, comprehansive help for newbee is missing\
@@ -204,5 +204,5 @@ def index(request):
 * delete/edit code in any way and see error messages on screen. Without it, following this tutorial as copy-paste activity will not help
 
 # django RESTful API
-soon, I realised that, using REST API with django is second most important thing to learn (after setting authentication system)\ 
+soon, I realised that, using REST API with django is second most important thing to learn (after setting authentication system)\
 ```apt install django-resfulapi```
