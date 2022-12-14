@@ -205,4 +205,98 @@ def index(request):
 
 # django RESTful API
 soon, I realised that, using REST API with django is second most important thing to learn (after setting authentication system)\
-```apt install django-resfulapi```
+```apt install django-resfulapi```\
+the new app using REST API is called "ma"\
+```python3 manage.py startapp ma```\
+  
+#### settings.py
+```
+INSTALLED_APPS = [
+    'rest_framework'
+]
+```
+  
+#### urls.py (in main project folder)
+```
+import home.views, ma.views
+from rest_framework import routers
+
+  router = routers.DefaultRouter()
+router.register(r'result', ma.views.ResultViewSet)
+
+urlpatterns = [
+    path('ma/', include(router.urls)),
+    #following is commented because I was getting template not found error
+    #path('ma/api-result/', include('rest_framework.urls', namespace='rest_framework'))
+
+]
+```
+#### modles.py in ma app folder (I am creating table called "result" with classname "Result". )
+```
+from django.db import models
+
+# Create your models here.
+
+class Result(models.Model):
+    sample_id = models.BigIntegerField(primary_key=True)
+    examination_id = models.IntegerField()
+    result = models.CharField(max_length=5000, blank=True, null=True)
+    recording_time = models.DateTimeField(blank=True, null=True)
+    recorded_by = models.BigIntegerField(blank=True, null=True)
+
+    class Meta:
+        managed = False
+        db_table = 'result'
+        unique_together = (('sample_id', 'examination_id'),)
+  ```
+  the table will be created manually in mysql.\
+  If one wants to create it by django 
+    1. set  ```managed=True```\
+    2. run ```makemigrations``` and ```migrate`` django commands
+    3. if ```managed=True``` is done after creating tables manually once, delete repective entry from mysql table for migrations. Otherwise it will never use managed=True settings
+  
+####  serializers.py in ma app folder
+```
+  from django.contrib.auth.models import User, Group
+from rest_framework import serializers
+from .models import Result
+
+class ResultSerializer(serializers.HyperlinkedModelSerializer):
+    class Meta:
+        model = Result
+        fields = ['url', 'sample_id', 'examination_id', 'result']
+```
+  
+#### views.py in ma folder
+```
+from django.shortcuts import render
+from django.http import HttpResponse
+
+# Create your views here.
+
+
+import ma.models, ma.serializers
+from rest_framework import viewsets
+from rest_framework import permissions
+
+
+
+class ResultViewSet(viewsets.ModelViewSet):
+    """
+    API endpoint that allows users to be viewed or edited.
+    """
+    queryset = ma.models.Result.objects.all().order_by('sample_id')
+    serializer_class = ma.serializers.ResultSerializer
+    permission_classes = [permissions.IsAuthenticated]
+```
+  
+run ```collectstatic``` command\
+restart apache2\
+login\
+```127.0.0.1/dj/ma```\
+edit /etc/apache2-conf/conf-enabled/common.conf as described above\
+add    line ```WSGIPassAuthorization On``` outside any section, to make curl work\
+restart apache2\
+```curl -H 'Accept: application/json; indent=4'  -u root:DNArna@123 http://127.0.0.1/dj/ma/```
+see / folloing ma. I spect 30 minutes figuringout this mistake\
+play
