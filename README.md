@@ -301,3 +301,8 @@ restart apache2\
 see / folloing ma.\
 I spent 30 minutes figuring out this mistake\
 play, experiment
+
+  
+ # settings.py Cookie expiration
+SESSION_COOKIE_AGE=300   #expire in 300 seconds
+SESSION_EXPIRE_AT_BROWSER_CLOSE=True #expire when browser close
