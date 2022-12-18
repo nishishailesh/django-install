@@ -297,11 +297,11 @@ login\
 edit /etc/apache2-conf/conf-enabled/common.conf as described above\
 add    line ```WSGIPassAuthorization On``` outside any section, to make curl work\
 restart apache2\
-```curl -H 'Accept: application/json; indent=4'  -u root:DNArna@123 http://127.0.0.1/dj/ma/```
+```curl -H 'Accept: application/json; indent=4'  -u user:password http://127.0.0.1/dj/ma/```
 see / folloing ma.\
 I spent 30 minutes figuring out this mistake\
 play, experiment
-
+also use "command" (inverted comma) if command contain @ in password field
   
  # settings.py Cookie expiration
 ```
