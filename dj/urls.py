@@ -20,28 +20,10 @@ from rest_framework import routers
 
 router = routers.DefaultRouter()
 router.register(r'result', ma.views.ResultViewSet)
-router.register(r'rresult', ma.views.MyResultViewSet)
+router.register(r'examination', ma.views.ExaminationViewSet)
 
 urlpatterns = [
-    #path('admin/', admin.site.urls),
     path('authentication/', include("django.contrib.auth.urls")),      #this is a string. not required to import
     path('', home.views.index, name='home')  ,  
-    
-    #path('ma', ma.views.index, name='ma'),    
     path('ma/', include(router.urls)),
-    #path('ma/api-result/', include('rest_framework.urls', namespace='rest_framework'))
-    path('ma/my/', include('ma.urls')),
-
 ]
-
-'''
-    authentication/ login/ [name='login']
-    authentication/ logout/ [name='logout']
-    authentication/ password_change/ [name='password_change']
-    authentication/ password_change/done/ [name='password_change_done']
-    authentication/ password_reset/ [name='password_reset']
-    authentication/ password_reset/done/ [name='password_reset_done']
-    authentication/ reset/<uidb64>/<token>/ [name='password_reset_confirm']
-    authentication/ reset/done/ [name='password_reset_complete']
-    [name='home']
-'''

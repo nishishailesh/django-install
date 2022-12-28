@@ -19,6 +19,6 @@ import ma.views
 
 
 urlpatterns = [
-    path('view/', ma.views.result_select),
-    path('change/<int:pk>/', ma.views.result_update_delete),
+    #path('view/', ma.views.result_select),
+    #path('change/<int:pk>/', ma.views.result_update_delete),
 ]

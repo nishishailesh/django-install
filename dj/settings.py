@@ -140,12 +140,11 @@ SESSION_EXPIRE_AT_BROWSER_CLOSE=True
 
 
 REST_FRAMEWORK = {
-    #'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
-    
-    #'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
-    #example https://api.example.org/accounts/?limit=100&offset=500
-    
     'DEFAULT_PAGINATION_CLASS': 'ma.custom_class.MyCursorPagination',
-    
-    'PAGE_SIZE': 3
+    'PAGE_SIZE': 10,
+    'DEFAULT_RENDERER_CLASSES': [
+        'rest_framework.renderers.AdminRenderer',
+        'rest_framework.renderers.JSONRenderer',
+        'rest_framework.renderers.BrowsableAPIRenderer',
+    ]
 }

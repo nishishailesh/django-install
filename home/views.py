@@ -5,11 +5,6 @@ from django.shortcuts import redirect
 
 def index(request):
     if request.user.is_authenticated:
-        return render(request, "index.html", {})
-        #html = "<html><body>It is Home</body></html>"
-        #return HttpResponse(html)
+        return render(request, "index.html", {"appname":"MA"})
     else:
         return redirect('login')
-        #return redirect('authentication/login') #Ths works but another app name is required
-        #html = "<html><body>Not logged in</body></html>"
-        #return HttpResponse(html)
