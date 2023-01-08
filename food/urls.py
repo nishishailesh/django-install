@@ -20,11 +20,10 @@ from rest_framework import routers
 from . import views
 
 router = routers.DefaultRouter()
-router.register(r'result', views.ResultViewSet)
-#router.register(r'editresult', views.EditResultViewSet)
-router.register(r'examination', views.ExaminationViewSet)
+router.register(r'intake', views.IntakeViewSet)
+router.register(r'myfood', views.MyfoodViewSet)
 
 urlpatterns = [
     path('tables/', include(router.urls)),
-    path('', views.index,name="ma_home"),
+    path('', views.index),
 ]

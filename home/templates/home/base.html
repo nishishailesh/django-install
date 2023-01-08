@@ -1,0 +1,118 @@
+<html>
+<head>
+    <title>{{appname}}</title>
+    {% load staticfiles %}  
+
+    <link       href="{% static   'rest_framework/css/bootstrap.min.css' %}"  rel="stylesheet" >  
+    <script     src = "{% static  'rest_framework/js/jquery.min.js' %}" ></script> 
+    <script     src = "{% static  'rest_framework/js/bootstrap.min.js' %}" ></script> 
+        
+<style>
+    .main_container 
+    {
+      display: grid;
+      grid-template-columns: 1fr 18fr 1fr;
+      grid-template-rows:    1fr 38fr 1fr;
+      gap: 0px ;
+    }
+
+    .topbar 
+    {
+      grid-column-start: 2;
+      grid-column-end: 2;
+      grid-row-start: 1;
+      grid-row-end: 1;
+      width:100%;
+      height:100%;
+      border: 1px solid black;       
+    }
+
+    .bottombar 
+    {
+      grid-column-start: 2;
+      grid-column-end: 2;
+      grid-row-start: 3;
+      grid-row-end: 3;
+      width:100%;
+      height:100%;
+      border: 1px solid black;       
+    }
+
+    .rightbar 
+    {
+      grid-column-start: 3;
+      grid-column-end: 3;
+      grid-row-start: 1;
+      grid-row-end: 4;  
+      width:100%;
+      height:100%;
+      border: 1px solid black;       
+    }
+
+    .leftbar 
+    {
+      grid-column-start: 1;
+      grid-column-end: 1;
+      grid-row-start: 1;
+      grid-row-end: 4;
+      width:100%;
+      height:100%;
+      border: 1px solid black;       
+    }
+
+    .mainspace 
+    {
+      grid-column-start: 2;
+      grid-column-end: 2;
+      grid-row-start: 2;
+      grid-row-end: 2;
+      width:100%;
+      height:100%;
+      border: 1px solid black;      
+    }
+
+    body
+    {
+        min-height: 100vh;
+        background-color:lightgray;
+    }
+    
+</style> 
+
+
+</head>        
+
+<body class=main_container>
+        <div class="topbar">
+            <div>
+                {% block topbar %}
+                    {% include "home/topbar.html" %}    
+                {% endblock %}
+            </div>
+        </div>
+        <div class="leftbar">
+            <div">
+                {% block leftbar %}
+                    {% include "home/leftbar.html" %}    
+                {% endblock %}
+            </div>
+        </div>
+        <div class="rightbar">
+            <div">
+                {% include "home/rightbar.html" %}    
+            </div>
+        </div>
+        <div class="bottombar">
+            <div">
+                {% include "home/bottombar.html" %}    
+            </div>
+        </div>
+        <div class="mainspace">
+            <div>
+                {% block mainspace %}MainSpace{% endblock %}
+            </div>
+        </div>
+</body>
+ 
+</html>
+

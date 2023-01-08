@@ -1,0 +1,180 @@
+{% extends 'ma/base.html' %}
+
+{% load staticfiles %}  
+
+{% block mainspace %}
+<h3 class="text-warning">{{help}}</h3>
+<h3 class="text-warning">data</h3>
+
+<!--
+{{data}}
+
+<table class="table table-sm table-striped">
+{% for each_data in data %}
+    <tr>
+            <td>{{each_data.id}}</td>
+             <td>{{each_data.sample_id}}</td>
+            <td>{{each_data.examination_id}}</td>
+            <td>{{each_data.result}}</td>
+   </tr>
+{% endfor %}
+</table>
+
+{{current_datetime}}
+
+-->
+
+  <button type=button onclick="drawLineGraph(dddd)">click</button>
+<canvas id="abc"></canvas>
+
+<!--
+<canvas id="abc" style="width:100%;max-width:700px"></canvas>
+<canvas id="xy" style="width:100%;max-width:700px"></canvas>
+<canvas id="xyz" style="width:100%;max-width:700px"></canvas>
+<canvas id="uuu" style="width:100%;max-width:700px"></canvas>
+-->
+
+  <script src="{% static 'chart.min.js' %}"></script>
+  
+{% autoescape off %}
+    <script type="text/javascript">
+        var dddd = {{data}};
+    </script>
+{% endautoescape %}
+
+<script>      
+
+    function drawLineGraph(dddd) 
+    {
+        new Chart(
+                    document.getElementById("abc"), 
+                    {
+                        type: 'scatter',
+                        data: {
+                            datasets:[
+                                        {
+                                            label: 'Moving Average',
+                                            data:dddd,
+                                            parsing:
+                                            {
+                                                yAxisKey:'result',
+                                                xAxisKey:'id',
+                                            }
+                                        },
+                                    ]
+                            },                    
+                    }
+                );
+    }
+
+/*
+    
+      new Chart(
+                              'xyz', 
+                              {
+                                type: 'line',
+
+                                data:   {
+                                                            label: 'Monnnnnving Average',
+                                                            labels: [10,102,4,23,4,5,23,1,34],
+                                         datasets:  [
+                                                        { 
+                                                            data: [{"id":1,"result":45},{"id":2,"result":23},{"id":3,"result":65},{"id":4,"result":35},{"id":5,"result":45}],
+                                                            //data: [100,102,4,23,4,5,23,1,34],
+                                                            parsing: { xAxisKey: 'id', yAxisKey: 'result' },
+                                                            lineTension: 0,
+                                                            backgroundColor: "rgba(0,0,155,1.0)",
+                                                            borderColor: "rgba(0,0,255,0.1)",
+                                                            fill: false,
+                                                        }
+                                                    ],
+                                        }
+                                
+                          
+                              }
+                           );
+                           
+    }
+    */
+ /*               
+const cfg = {
+  type: 'bar',
+  data: {
+    datasets: [{
+      data: [{id: 'Sales', nested: {value: 1500}}, {id: 'Purchases', nested: {value: 500}}]
+    }]
+  },
+  options: {
+    parsing: {
+      xAxisKey: 'id',
+      yAxisKey: 'nested.value'
+    }
+  }
+}
+
+new Chart('xy', cfg);
+*/
+/*
+new Chart(
+    "uuu", 
+    {
+    type: 'line',
+    data: {
+		datasets:[
+                    {
+                        label: 'Moving Average999999',
+                        data:dddd,
+                        parsing:
+                        {
+                            yAxisKey:'result',
+                            xAxisKey:'id',
+                        }
+          			},
+                    
+                    {
+                        label: 'Result',
+                        data:jdata,
+                        parsing:{
+                                        yAxisKey:'result',
+                                        xAxisKey:'id',
+                                },
+
+                        plugins:{
+                                    tooltips: 
+                                        {
+                                            callbacks: {
+                                                            label: function (context){return 'Sum';}
+                                                        }
+                                        }
+                                }
+
+                    }
+
+
+
+			]
+	  },
+    options: 	{
+    			scales:
+			{
+				//y:{suggestedMin:100, suggestedMax:200}
+  			},
+		plugins:{
+			tooltips: 
+			{
+        			callbacks: {
+						label: function (context){return 'Sum';}
+
+					}
+			}
+			}
+
+		},
+    }
+         );
+
+*/
+ 
+  </script>
+  
+{% endblock %}

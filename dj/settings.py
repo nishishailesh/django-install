@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'authentication',
     'home',
     'ma',
+    'food',
     'rest_framework'
 ]
 
@@ -82,8 +83,16 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'ma',
-        'USER':'user',
-        'PASSWORD':'pass',
+        'USER':'rootuser',
+        'PASSWORD':'rootuser',
+        'HOST':'127.0.0.1',
+        'PORT':'3306',
+    },
+    'food': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'food',
+        'USER':'rootuser',
+        'PASSWORD':'rootuser',
         'HOST':'127.0.0.1',
         'PORT':'3306',
     }
@@ -114,7 +123,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Kolkata'
 
 USE_I18N = True
 
@@ -126,14 +135,19 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
-STATIC_URL = '/dj/static/'
-STATIC_ROOT="/usr/share/nchs/dj/static"
+STATIC_URL = '/dresident/static/'
+STATIC_ROOT="/usr/share/nchs/resident/static"
 
 '''
 django.contrib.auth.views.login redirects you to accounts/profile/ right after you log in.
 You may want to set LOGIN_REDIRECT_URL inside your settings.py file to anything you like
 '''
-LOGIN_REDIRECT_URL='/dj/'
+LOGIN_REDIRECT_URL='/dresident/'
+
+'''
+following when login fail
+'''
+#LOGIN_URL='/dresident/authentication/login'
 
 SESSION_COOKIE_AGE=9300
 SESSION_EXPIRE_AT_BROWSER_CLOSE=True
